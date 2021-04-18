@@ -1,0 +1,236 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*!=================COMMON STYLES START===================*/
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+html {
+	scroll-behavior: smooth;
+	font-size: 10px;
+}
+body {
+	font-size: 1.6rem;
+	line-height: 1;
+}
+a,
+::before,
+::after {
+	display: inline-flex;
+	text-decoration: none;
+	color: inherit;
+}
+input,
+select,
+textarea,
+button {
+	font: inherit;
+	color: inherit;
+}
+button {
+	cursor: pointer;
+}
+:focus {
+	outline: 1px solid rgb(229, 255, 0);
+}
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	width: 100%;
+}
+.top-bar {
+	padding: 5px 2px;
+	background-color: #f5f0f0;
+	font-size: 1.4rem;
+	display: flex;
+	align-items: center;
+}
+.top-bar__update {
+	background-color: transparent;
+	border: none;
+	transition: 0.7s;
+	font-size: 1.5rem;
+	margin-left: 5px;
+	transform: scaleX(-1);
+	outline: none;
+}
+.top-bar__update:hover,
+.top-bar__update:focus {
+	color: #5e53ff;
+	transform: scaleX(-1) rotate(360deg);
+}
+.top-bar__all {
+	margin-right: 20px;
+}
+.messeger-container {
+	margin-top: 30px;
+	outline: 1px solid #f5f0f0;
+}
+.message {
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	font-size: 1.3rem;
+	color: #a0a0a0;
+	margin-top: 5px;
+}
+.message-unread {
+	background-color: #f5f0f0;
+}
+.message__avatar {
+	width: 50px;
+	height: auto;
+	border-radius: 50%;
+	background-color: #f5f0f0;
+	border: 2px solid #aba5f5;
+}
+.message__user {
+	color: initial;
+	min-width: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	line-height: 1.5;
+	padding-left: 2%;
+}
+.user-phone {
+	font-weight: 600;
+}
+.message-date {
+	min-width: 105px;
+	display: flex;
+	justify-content: flex-end;
+}
+.message-date span:last-of-type {
+	margin-left: 10px;
+}
+.message-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	padding: 0 5%;
+	line-height: 1.1;
+}
+/*!=================COMMON STYLES END===================*/
