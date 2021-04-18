@@ -54,12 +54,10 @@ messegerContainerEl.addEventListener("click", event => {
 		const messageIdx = MESSAGES.findIndex(message => message.id === messageId)
 		if (MESSAGES[messageIdx].seen === false) {
 			MESSAGES[messageIdx].seen = true
-			renderMessages(MESSAGES)
-		}
-		if (MESSAGES[messageIdx].seen === true) {
+		} else if (MESSAGES[messageIdx].seen === true) {
 			MESSAGES.splice(messageIdx, 1)
-			renderMessages(MESSAGES)
 		}
+		renderMessages(MESSAGES)
 	}
 	if (btnUpdateEl) {
 		btnUpdateEl.classList.add("active")
