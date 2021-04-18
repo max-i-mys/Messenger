@@ -164,6 +164,8 @@ button {
 	font-size: 1.4rem;
 	display: flex;
 	align-items: center;
+	position: sticky;
+	top: 0;
 }
 .top-bar__update {
 	background-color: transparent;
@@ -177,7 +179,19 @@ button {
 .top-bar__update:hover,
 .top-bar__update:focus {
 	color: #5e53ff;
-	transform: scaleX(-1) rotate(360deg);
+	transform: scaleX(-1);
+}
+.top-bar__update.active {
+	animation: rotate 1s forwards;
+}
+
+@keyframes rotate {
+	0% {
+		transform: scaleX(-1) rotate(0deg);
+	}
+	100% {
+		transform: scaleX(-1) rotate(360deg);
+	}
 }
 .top-bar__all {
 	margin-right: 20px;
@@ -203,6 +217,7 @@ button {
 	border-radius: 50%;
 	background-color: #f5f0f0;
 	border: 2px solid #aba5f5;
+	cursor: pointer;
 }
 .message__user {
 	color: initial;
@@ -232,5 +247,8 @@ button {
 	-webkit-box-orient: vertical;
 	padding: 0 5%;
 	line-height: 1.1;
+}
+.message-text.show {
+	-webkit-line-clamp: initial;
 }
 /*!=================COMMON STYLES END===================*/
