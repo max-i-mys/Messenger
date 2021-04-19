@@ -15,13 +15,15 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 	month: "2-digit",
 	year: "numeric",
 })
+
+let refreshAnimationTimer = null
+
 renderMessages(MESSAGES)
 
 function renderMessages(messages) {
 	let accMessages = ""
 	messages
-		.sort((a, b) => a.date - b.date)
-		.sort((a, b) => a.seen - b.seen)
+		.sort((a, b) => a.seen - b.seen || (a.date - b.date) * -1)
 		.forEach(message => (accMessages += createMessageHtml(message)))
 	boxMessengerEl.innerHTML = accMessages
 	const unreadMessages = MESSAGES.filter(message => message.seen === false)
@@ -47,8 +49,6 @@ function createMessageHtml(message) {
 
 messegerContainerEl.addEventListener("click", event => {
 	const messageCurrencyEl = event.target.closest(".message__avatar")
-	const btnUpdateEl = event.target.closest(".top-bar__update")
-	const textMessageEl = event.target.closest(".message-text")
 	if (messageCurrencyEl) {
 		const messageId = +messageCurrencyEl.dataset.id
 		const messageIdx = MESSAGES.findIndex(message => message.id === messageId)
@@ -58,14 +58,25 @@ messegerContainerEl.addEventListener("click", event => {
 			MESSAGES.splice(messageIdx, 1)
 		}
 		renderMessages(MESSAGES)
+		return
 	}
+
+	const btnUpdateEl = event.target.closest(".top-bar__update")
 	if (btnUpdateEl) {
 		btnUpdateEl.classList.add("active")
-		setTimeout(() => btnUpdateEl.classList.remove("active"), 1000)
+		clearTimeout(refreshAnimationTimer)
+		refreshAnimationTimer = setTimeout(
+			() => btnUpdateEl.classList.remove("active"),
+			1000
+		)
 		MESSAGES = JSON.parse(DATA)
 		renderMessages(MESSAGES)
+		return
 	}
+
+	const textMessageEl = event.target.closest(".message-text")
 	if (textMessageEl) {
 		textMessageEl.classList.toggle("show")
-	} else return
+		return
+	}
 })

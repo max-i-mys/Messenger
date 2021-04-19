@@ -213,7 +213,7 @@ button {
 }
 .message__avatar {
 	width: 50px;
-	height: auto;
+	height: 50px;
 	border-radius: 50%;
 	background-color: #f5f0f0;
 	border: 2px solid #aba5f5;
